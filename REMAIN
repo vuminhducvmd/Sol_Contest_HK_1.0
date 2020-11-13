@@ -1,14 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-signed main()
-{
-	string s; cin >> s;
+string s;
+void solution1(){
 	int base = 1, ans = 0;
 	for(int i = s.length()-1; i > -1; --i){
 		ans = (ans + base * int(s[i]-'0')) % 17;
 		base = (base * 2) % 17;
 	}
-	cout << ans;
+	cout << ans << endl;
+}
+
+void solution2(){
+	map<char,int> f[17];
+	for(int i = 0; i < 17; ++i){
+		f[i]['0'] = (i * 2) 	% 17;
+		f[i]['1'] = (i * 2 + 1) % 17;
+	}
+	
+	int ans = 0; 
+	for(int i = 0; i < s.length(); ++i) ans = f[ans][s[i]];
+	cout << ans << endl;
+}
+
+void Run_Solution_Number(int num){if(num == 1)solution1();else solution2();}
+signed main()
+{
+	cin >> s;
+// 		I wrote 2 working solutions.
+//		- Solution1 runs from s.length() ----> 0;
+//		- The other runs from 0 ----> s.length();
+	Run_Solution_Number(2);
 	return 0;
 }
