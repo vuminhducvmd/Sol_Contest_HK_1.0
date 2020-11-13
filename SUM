@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int n,  a[20];
+bool used[20];
+bool invalid(int x){
+	if(x < 0) return false;
+	if(x == 0) return true;
+	
+	for(int i = 0; i < n; ++i) if(used[i] == false){
+		if(invalid(x-a[i])) return true;
+	}
+	return false;
+}
+
+signed main()
+{
+	cin >> n;
+	int biggest_possible_ans = 1;
+	for(int i = 0; i < n; ++i){
+		cin >> a[i]; biggest_possible_ans += a[i];
+		used[i] = false;
+	}
+	for(int i = 1; i < biggest_possible_ans; ++i){
+		if(invalid(i)){
+			cout << i; return 0;
+		}
+	}
+	cout << biggest_possible_ans;
+	return 0;
+}
