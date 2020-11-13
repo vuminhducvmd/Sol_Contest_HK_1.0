@@ -8,7 +8,7 @@ void solution1(){
 		ans = (ans + base * int(s[i]-'0')) % 17;
 		base = (base * 2) % 17;
 	}
-	cout << ans << endl;
+	cout << ans;
 }
 
 void solution2(){
@@ -20,7 +20,7 @@ void solution2(){
 	
 	int ans = 0; 
 	for(int i = 0; i < s.length(); ++i) ans = f[ans][s[i]];
-	cout << ans << endl;
+	cout << ans;
 }
 
 void Run_Solution_Number(int num){if(num == 1)solution1();else solution2();}
