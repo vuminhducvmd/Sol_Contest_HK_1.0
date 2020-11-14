@@ -12,7 +12,7 @@ signed main()
 	
 	int pos = 0, rank = 1;
 	while(pos < n){
-		int val = a[pos].first;
+		double val = a[pos].first;
 		while(a[pos].first == val){
 			ans[a[pos].second] = rank;
 			++pos;
